@@ -6,4 +6,9 @@ Jul.14, 2022 Updated: The game creates text file to save all game records in the
 
 Sep.10, 2022 Updated: The game has the function to clear the history game records. Problems remaining: void restartRecord() does not work.
 
+Dec.31, 2022 Updated: The initial version of the C++ object oriented programming version of the game is developed. The game contains two classes, the 
+initially generated grid and the playing grid. The use of friend class enables the playing grid to read the initially generated grid at any time, enabling the game to be restarted at any time. Also, the use of C++ I/O can enable more advanced error checking processes so that the program can be continued when 
+encountering any problematic inputs.
+Plan: waiting to implement the game records system to keep track of all past games. 
+
 The demo of the program can be found in the pdf file.
