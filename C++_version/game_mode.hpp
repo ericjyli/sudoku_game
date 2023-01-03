@@ -4,6 +4,7 @@
 #include "generator.hpp"
 #include "stdlib.h"
 #include "string"
+#include "fstream"
 
 class GameGrid {
     private: 
@@ -21,6 +22,7 @@ class GameGrid {
         void playing(GeneratedGrid *gGrid);
         bool notWantToContinue();
 
+        void gameRecord(GeneratedGrid *gGrid);
 };
 
 

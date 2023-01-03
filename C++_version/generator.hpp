@@ -19,7 +19,7 @@ class GeneratedGrid {
         
         void printGrid();
         
-        bool spaceAvailable (int row, int col);
+        //bool spaceAvailable (int row, int col);
 
         //void initialAvailable();
         //Given the blank Sudoku grid, the linear fill function will fill in every number into the block 

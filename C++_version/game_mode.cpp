@@ -241,6 +241,17 @@ bool GameGrid::notWantToContinue(){
             return true;
         }
 
+        else if (next == 'c' || next == 'C'){
+            std::fstream game_num;
+            game_num.open("Game_num.txt", std::ios::out);
+            game_num << "0";
+            game_num.close();
+            std::fstream record;
+            record.open("Game_Record.txt",std::ios::out);
+            record.close();
+            return false;
+        }
+
         //when the user wants to clear the data, restart the record and terminate the game
         // else if (next == 'c' || next == 'C'){
 
@@ -259,4 +270,51 @@ bool GameGrid::notWantToContinue(){
         }
     }
     return 0;  
+}
+
+void GameGrid::gameRecord(GeneratedGrid *gGrid){
+    std::ofstream record;
+    std::fstream game_num;
+    int num;
+    game_num.open("Game_Num.txt", std::ios::in);
+    if (!game_num){
+        game_num.close();
+        game_num.open("Game_num.txt",std::ios::out);
+        num = 1;
+        game_num << num;
+        game_num.close();
+    }
+
+    else {
+        game_num >> num;
+        num++;
+        game_num.close();
+        game_num.open("Game_num.txt",std::ios::out);
+        game_num << num; 
+        game_num.close();      
+    }
+
+    record.open("Game_Record.txt", std::ios::app);
+    record << "Game number " << num << std::endl;
+    record << "Initial generated game: " << std::endl << std::endl;
+    
+    for (int i = 0; i < 9; ++i){
+        for (int j = 0; j < 9; ++j){
+            record << gGrid -> getNum(i,j) << "  ";
+        }
+        record << "\n\n";
+    }
+
+    record << "Final solution: \n\n";
+
+    for (int i = 0; i < 9; ++i){
+        for (int j = 0; j < 9; ++j){
+            record << gameGrid[i][j] << "  ";
+        }
+        record << "\n\n";
+    } 
+
+    record.close();
+
+    return;    
 }

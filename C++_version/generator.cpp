@@ -80,10 +80,10 @@ void GeneratedGrid::printGrid(){
     }   
 }
 
-bool GeneratedGrid::spaceAvailable (int row, int col){
-    if (generatedGrid[row][col] == 0)   return true;
-    else return false;
-}
+// bool GeneratedGrid::spaceAvailable (int row, int col){
+//     if (generatedGrid[row][col] == 0)   return true;
+//     else return false;
+// }
 
 // void GeneratedGrid::initialAvailable(){
 //     for (int i = 0; i < 81; i++){
@@ -141,7 +141,6 @@ void GeneratedGrid::replenishSquareNum (int index){
         availArr[index][i] = i+1;
     }
 }
-
 
 void GeneratedGrid::removeKDigits(){
     bool valid = false;

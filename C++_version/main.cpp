@@ -11,12 +11,12 @@
 #include "game_mode.hpp"
 
 
-
 int main(){
 
-    bool end = false;
+    bool end;
+    
 
-    while (!end) {
+    while (1) {
         GeneratedGrid* gGrid = new GeneratedGrid;
         gGrid -> linearFill();
         gGrid -> removeKDigits();
@@ -24,10 +24,19 @@ int main(){
         game -> printGrid(gGrid);
         game -> playing(gGrid);
 
+        //save the game record
 
+        game -> gameRecord(gGrid);
+
+        //-----------------------
         delete gGrid;
         delete game;
-        break;
+        
+        //ask if want to continue
+        end = game -> notWantToContinue();
+        if (!end)   continue;
+        if (end)    break;
+        
     }
 
     return 0;
