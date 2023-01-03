@@ -11,4 +11,6 @@ initially generated grid and the playing grid. The use of friend class enables t
 encountering any problematic inputs.
 Plan: waiting to implement the game records system to keep track of all past games. 
 
+Jan.3, 2023 Updated: The game records system is implemented. Error checking system is fully implemented to ensure that the game runs smoothly.
+
 The demo of the program can be found in the pdf file.
