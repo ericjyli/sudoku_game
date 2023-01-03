@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/ericli/Documents/codes/sudokuGame/C++_version",
-      "program": "/Users/ericli/Documents/codes/sudokuGame/C++_version/build/Debug/outDebug"
+      "cwd": "/Users/ericli/Documents/codes/sudoku_game/C++_version",
+      "program": "/Users/ericli/Documents/codes/sudoku_game/C++_version/build/Debug/outDebug"
     }
   ]
 }
