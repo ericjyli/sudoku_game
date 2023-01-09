@@ -133,7 +133,7 @@ void GameGrid::playing(GeneratedGrid *gGrid){
 
         if (std::cin.fail() || std::cin.eof() || userNum < 0 || userNum > 9 ){
             std::cout << "Invalid input!" << std::endl;
-            std::cout << "Please enter a number from 1 to 9 (inclusive), or 10 to restart the game" << std::endl;
+            std::cout << "Please enter a number from 1 to 9 (inclusive), or 10 to restart the game" << std::endl << std::endl;
             std::cin.clear();
             std::cin.ignore(10000,'\n');
             continue;  
@@ -164,6 +164,7 @@ void GameGrid::playing(GeneratedGrid *gGrid){
             
             std::cout << "Enter the location you want to fill " << userNum << " in: (row col): ";
             std::cin >> userRow >> userCol;
+            std::cout << std::endl;
             
             // std::cin >> aString;
             // if (!std::cin.fail()){
@@ -174,7 +175,7 @@ void GameGrid::playing(GeneratedGrid *gGrid){
             // }
 
             if (userRow < 'A' || userRow > 'I' || userCol < 'A' || userCol > 'I'){
-                std::cout << "Invalid location! Please make sure the row and col are capital letters in the range of 'A' to 'I' (inclusive) " << std::endl;
+                std::cout << "Invalid location! Please make sure the row and col are capital letters in the range of 'A' to 'I' (inclusive) " << std::endl << std::endl;
                 continue;
             }
 
@@ -186,10 +187,11 @@ void GameGrid::playing(GeneratedGrid *gGrid){
                 if (gGrid -> generatedGrid[row][col] == 0){
                     gameGrid[row][col] = 0;
                     printGrid(gGrid);
+                    std::cout << std::endl;
                     continue;
                 }
                 else {
-                    std::cout << "You cannot remove the number there since it was filled by the game generator" << std::endl;
+                    std::cout << "You cannot remove the number there since it was filled by the game generator" << std::endl << std::endl;
                     continue;
                 }
             }
@@ -198,18 +200,19 @@ void GameGrid::playing(GeneratedGrid *gGrid){
 
             if (move == false){
                 std::cout << "The move is illegal." << std::endl;
-                std::cout << "Please refer to the rules of sudoku to fill in a valid number" << std::endl;
+                std::cout << "Please refer to the rules of sudoku to fill in a valid number" << std::endl << std::endl;
                 continue;
             }
 
             if (gGrid -> generatedGrid[row][col] != 0){
                 move = false;
-                std::cout << "You cannot fill in a number there since it was already filled by the game generator" << std::endl;
+                std::cout << "You cannot fill in a number there since it was already filled by the game generator" << std::endl << std::endl;
                 continue;
             }
             else if (move == true){
                 gameGrid[row][col] = userNum;
                 printGrid(gGrid);
+                std::cout << std::endl;
                 notDone = gameNotDone ();
                 if (!notDone){
                     std::cout << "You win!\n\n";
@@ -305,7 +308,13 @@ void GameGrid::gameRecord(GeneratedGrid *gGrid){
     
     for (int i = 0; i < 9; ++i){
         for (int j = 0; j < 9; ++j){
-            record << gGrid -> getNum(i,j) << "  ";
+            if (gGrid -> getNum(i,j) == 0){
+                record << "   ";
+            }
+            else {
+                record << gGrid -> getNum(i,j) << "  ";
+            }
+            
         }
         record << "\n\n";
     }
