@@ -243,7 +243,7 @@ bool GameGrid::notWantToContinue(){
 
         else if (next == 'c' || next == 'C'){
             clearRecord();
-            return false;
+            return true;
         }
 
         //when the user wants to clear the data, restart the record and terminate the game
