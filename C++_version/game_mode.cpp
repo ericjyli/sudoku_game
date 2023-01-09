@@ -134,8 +134,8 @@ void GameGrid::playing(GeneratedGrid *gGrid){
         if (std::cin.fail() || std::cin.eof() || userNum < 0 || userNum > 9 ){
             std::cout << "Invalid input!" << std::endl;
             std::cout << "Please enter a number from 1 to 9 (inclusive), or 10 to restart the game" << std::endl;
-            std::cin.ignore(10000,'\n');
             std::cin.clear();
+            std::cin.ignore(10000,'\n');
             continue;  
         }
 
