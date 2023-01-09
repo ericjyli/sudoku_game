@@ -229,7 +229,7 @@ void GameGrid::playing(GeneratedGrid *gGrid){
 bool GameGrid::notWantToContinue(){
     char next;
     std::cout << "Do you want to continue to the next game?" << std::endl;
-    std::cout << "If you want to clear the past game data, put 'c'. (y/n/c): " << std::endl;
+    std::cout << "If you want to clear the past game data, enter 'c'. (y/n/c): " << std::endl;
     std::cin >> next;
     bool valid = false;
     while (!valid){
@@ -242,13 +242,7 @@ bool GameGrid::notWantToContinue(){
         }
 
         else if (next == 'c' || next == 'C'){
-            std::fstream game_num;
-            game_num.open("Game_num.txt", std::ios::out);
-            game_num << "0";
-            game_num.close();
-            std::fstream record;
-            record.open("Game_Record.txt",std::ios::out);
-            record.close();
+            clearRecord();
             return false;
         }
 
@@ -270,6 +264,17 @@ bool GameGrid::notWantToContinue(){
         }
     }
     return 0;  
+}
+
+void GameGrid::clearRecord(){
+    std::fstream game_num;
+    game_num.open("Game_num.txt", std::ios::out);
+    game_num << "0";
+    game_num.close();
+    std::fstream record;
+    record.open("Game_Record.txt",std::ios::out);
+    record.close();
+    return;
 }
 
 void GameGrid::gameRecord(GeneratedGrid *gGrid){

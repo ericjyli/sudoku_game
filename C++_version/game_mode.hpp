@@ -23,6 +23,7 @@ class GameGrid {
         bool notWantToContinue();
 
         void gameRecord(GeneratedGrid *gGrid);
+        void clearRecord();
 };
 
 
