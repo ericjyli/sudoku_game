@@ -20,7 +20,7 @@ SRCS = $(wildcard $(SRCDIR)/*.cpp)
 OBJS = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SRCS))
 
 # The final executable name
-EXECUTABLE = main
+EXECUTABLE = main.exe
 
 # ****************************************************
 # Targets
